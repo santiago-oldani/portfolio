@@ -1,22 +1,44 @@
-import './index.css'
-import Navbar from './components/Navbar/Navbar'
-import Welcome from './components/Welcome/Welcome'
-import Technologies from './components/Technologies/Technologies';
-import Projects from './components/Projects/Projects';
+import { useRef } from "react";
+import { useInView } from "framer-motion";
+import Navbar from "./components/Navbar/Navbar";
+import Technologies from "./components/Technologies/Technologies";
+import Projects from "./components/Projects/Projects";
+import Welcome from "./components/Welcome/Welcome";
+import Contact from "./components/Contact/Contact";
 
-function App() {
+const App = () => {
+  const techRef = useRef(null);
+  const projectsRef = useRef(null);
+  const contactRef = useRef(null);
+
+  const isTechInView = useInView(techRef, { amount: 0.4 });
+  const isProjectsInView = useInView(projectsRef, { amount: 0.4 });
+  const isContactInView = useInView(contactRef, {amount: 0.4} );
+
+  const shouldShrinkNavbar = isTechInView || isProjectsInView || isContactInView;
+
   return (
-    <div className='grid grid-rows-[auto_1fr_auto] w-full my-0 mx-auto min-h-screen h-screen snap-y snap-mandatory overflow-y-scroll'>
+    <main className="h-screen overflow-y-scroll snap-y snap-mandatory">
+      <Navbar shrink={shouldShrinkNavbar} />
 
-      <Navbar />
-      <main>
+      <section className="snap-start h-screen flex items-center justify-center">
         <Welcome />
+      </section>
+
+      <section ref={techRef} className="snap-start h-screen bg-white">
         <Technologies />
+      </section>
+
+      <section ref={projectsRef} className="snap-start h-screen flex items-center justify-center">
         <Projects />
-      </main>
+      </section>
 
-    </div>
-  )
-}
+      <section ref={contactRef} className="snap-start h-screen">
+        <Contact />
+      </section>
+    </main>
+  );
+};
 
-export default App
+export default App;
+

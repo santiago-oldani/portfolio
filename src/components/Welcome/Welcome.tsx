@@ -32,12 +32,12 @@ function Welcome() {
             </div>
             
             <div className='flex flex-row gap-[20px]'>
-                <a href="https://github.com/santiago-oldani">
+                <a target="_blank" href="https://github.com/santiago-oldani">
                 <div className='flex items-center justify-center shadow-md p-[15px] border border-solid border-[#e5e5e5] rounded-[50%]'>
                     <IoLogoGithub size={32} />
                 </div>
                 </a>
-                <a href="https://www.linkedin.com/in/santioldani/">
+                <a target="_blank" href="https://www.linkedin.com/in/santioldani/">
                 <div className='flex items-center justify-center p-[15px] shadow-md border border-solid border-[#e5e5e5] rounded-[50%]'>
                     <ImLinkedin size={32}/>
                 </div>
