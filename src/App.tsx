@@ -5,35 +5,48 @@ import Technologies from "./components/Technologies/Technologies";
 import Projects from "./components/Projects/Projects";
 import Welcome from "./components/Welcome/Welcome";
 import Contact from "./components/Contact/Contact";
+import { CiCircleChevUp } from "react-icons/ci";
+import AboutMe from "./components/AboutMe/AboutMe";
+import { scrollToSection } from "./utils/scroll";
 
 const App = () => {
   const techRef = useRef(null);
   const projectsRef = useRef(null);
   const contactRef = useRef(null);
+  const aboutRef = useRef(null);
+  const welcomeRef = useRef(null);
 
   const isTechInView = useInView(techRef, { amount: 0.4 });
   const isProjectsInView = useInView(projectsRef, { amount: 0.4 });
-  const isContactInView = useInView(contactRef, {amount: 0.4} );
+  const isContactInView = useInView(contactRef, { amount: 0.4 });
+  const isAboutInView = useInView(aboutRef, { amount: 0.4 }) ;
+  const isWelcomeInView = useInView(welcomeRef, { amount: 0.4 });
 
-  const shouldShrinkNavbar = isTechInView || isProjectsInView || isContactInView;
+  const shouldShrinkNavbar = isTechInView || isProjectsInView || isContactInView || isAboutInView;
 
+  
   return (
     <main className="h-screen overflow-y-scroll snap-y snap-mandatory">
       <Navbar shrink={shouldShrinkNavbar} />
-
-      <section className="snap-start h-screen flex items-center justify-center">
+      {!isWelcomeInView ? <CiCircleChevUp size={60} color="#007bff" onClick={() => scrollToSection('welcome')} className="absolute bottom-10 right-10 cursor-pointer"></CiCircleChevUp> : null}
+      
+      <section id="welcome" ref={welcomeRef} className="snap-start h-screen flex items-center justify-center">
         <Welcome />
       </section>
 
-      <section ref={techRef} className="snap-start h-screen bg-white">
+      <section id="aboutMe" ref={aboutRef} className="snap-start h-screen">
+        <AboutMe />
+      </section>
+
+      <section id="technologies" ref={techRef} className="snap-start h-screen">
         <Technologies />
       </section>
 
-      <section ref={projectsRef} className="snap-start h-screen flex items-center justify-center">
+      <section id="projects" ref={projectsRef} className="snap-start h-screen flex items-center justify-center">
         <Projects />
       </section>
 
-      <section ref={contactRef} className="snap-start h-screen">
+      <section id="contact" ref={contactRef} className="snap-start h-screen">
         <Contact />
       </section>
     </main>

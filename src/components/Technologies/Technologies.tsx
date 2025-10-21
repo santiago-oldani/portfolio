@@ -9,6 +9,12 @@ import springBoot from '../../assets/icons/springboot1.png';
 import react from '../../assets/icons/react.svg';
 import tailwind from '../../assets/icons/tailwind5.png';
 import ts from '../../assets/icons/ts.png';
+import fastapi from '../../assets/icons/fast.png';
+import git from '../../assets/icons/git.png';
+import node from '../../assets/icons/node.png';
+import postman from '../../assets/icons/postman.png';
+import figma from '../../assets/icons/figma.png';
+import tools from '../../assets/icons/tools.svg';
 import { TbWorld } from "react-icons/tb";
 import type { IconType } from 'react-icons';
 import { useState } from 'react';
@@ -53,6 +59,7 @@ const techCategories: TechCategory[] = [
             { name: "MySQL", img: mysql, description: "Base de datos relacional." },
             { name: "MongoDB", img: mongoDB, description: "Base de datos NoSQL flexible." },
             { name: "Python", img: python, description: "Lenguaje versátil para scripting y backend." },
+            { name: "FastAPI", img: fastapi, description: "" }
         ],
     },
     {
@@ -60,11 +67,10 @@ const techCategories: TechCategory[] = [
         icon: VscTools,
         color: '#fd8f1aff',
         items: [
-            { name: "Git / GitHub", img: html, description: "Control de versiones y repositorios." },
-            { name: "VS Code", img: html, description: "Editor principal de desarrollo." },
-            { name: "Figma", img: html, description: "Diseño UI/UX y prototipado." },
-            { name: "Postman", img: html, description: "Pruebas de API y endpoints." },
-            { name: "Node.js", img: html, description: "Entorno de ejecución de JavaScript en servidor." },
+            { name: "Git", img: git, description: "Control de versiones y repositorios." },
+            { name: "Node.js", img: node, description: "Entorno de ejecución de JavaScript en servidor." },
+            { name: "Postman", img: postman, description: "Pruebas de API y endpoints." },
+            { name: "Figma", img: figma, description: "Diseño UI/UX y prototipado." },
         ],
     },
 ];
@@ -76,7 +82,11 @@ const Technologies: React.FC = () => {
         <section className="flex flex-col snap-start gap-[70px] py-[100px] items-center justify-around h-full w-full">
 
             <div className='flex flex-col items-center justify-center pt-[25px]'>
-                <h2 className='text-[42px] font-semibold m-[0px]'>Tecnologias y habilidades</h2>
+                <div className='flex flex-row items-center justify-center gap-[15px]'>
+                    <h2 className='text-[42px] font-semibold m-[0px]'>Tecnologias y habilidades</h2>
+                    <img src={tools} alt=""  className='w-[60px]'/>
+                </div>
+
                 <h5 className='text-[20px] m-[0px]'>Experiencia solida en el stack completo de desarrollo web moderno</h5>
             </div>
 
