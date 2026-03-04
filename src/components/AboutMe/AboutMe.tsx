@@ -64,12 +64,12 @@ const AboutMe: React.FC = () => {
                 max-[1000px]:max-h-[800px] max-[1000px]:justify-start
                 max-[1000px]:overflow-y-auto max-[1000px]:gap-[0px]'>
 
-                <div className='w-[40%] max-[1000px]:w-full h-full border-r-[1px] border-[#f2f1f5] flex flex-col  items-center justify-start py-[20px] px-[20px] gap-[20px]'>
-                    <div className='w-[230px] h-[230px] max-[1000px]:w-[180px] max-[1000px]:h-[180px] rounded-full overflow-hidden border-2 border-gray-200 shadow-lg'>
+                <div className='w-[40%] max-[1000px]:w-full h-full max-[1000px]:border-none border-r-[1px] border-[#f2f1f5] flex flex-col  items-center justify-start py-[20px] px-[20px] gap-[20px]'>
+                    <div className='w-[230px] h-[230px] flex-shrink-0 max-[1000px]:w-[180px] max-[1000px]:h-[180px] rounded-full overflow-hidden border-2 border-gray-200 shadow-lg'>
                         <img src={rostro} alt="Santiago Oldani" className='w-full h-full object-cover flex-shrink-0' />
                     </div>
 
-                    <div className='text-[#787a84] font-[600] text-[1rem] border-b-[1px] border-[#f2f1f5] pb-[10px]'>
+                    <div className='text-[#787a84] font-[600] text-center text-[1rem] border-b-[1px] border-[#f2f1f5] pb-[10px]'>
                         <h5>Disponible para oportunidades.</h5>
                         <h5>Full-time · Remoto · Presencial</h5>
                     </div>
@@ -89,12 +89,12 @@ const AboutMe: React.FC = () => {
                         </div>
                     </div>
 
-                    <a href="/cv-santiago-oldani.pdf" target="_blank" rel="noopener noreferrer" className="px-[20px] py-[10px] text-[#787a84] font-semibold hover:bg-[#f0f7ff] transition">
+                    <a href="/cv-santiago-oldani.pdf" target="_blank" rel="noopener noreferrer" className="max-[1000px]:border-b-[1px] max-[1000px]:border-[#f2f1f5] px-[20px] py-[10px] text-[#787a84] font-semibold hover:bg-[#f0f7ff] transition">
                         Ver curriculum
                     </a>
                 </div>
 
-                <div className='flex flex-col max-[1000px]:items-center items-start justify-center w-full p-[22px]'>
+                <div className='flex flex-col max-[1000px]:items-center max-[1000px]:p-[10px] items-start justify-center w-full p-[22px]'>
                     <h1 className='text-[2.5rem] max-[1000px]:text-[2rem] text-[#272b36] text-center font-[600]'>Santiago Oldani</h1>
                     <h2 className='text-[1.8rem] max-[1000px]:text-[1.3rem] font-[500] text-center text-[#007bff]'>Desarrollador Web Full Stack</h2>
                     <h5 className='text-[1rem] font-normal m-[0px] max-w-[680px] text-gray-700 leading-relaxed text-justify md:text-left mt-[30px]'>Soy Desarrollador web full stack con formación en la <strong className='font-[600]'>Tecnicatura en Programación (UTN).</strong> Me especializo en la construcción de aplicaciones web modernas utilizando React en el frontend y Java/Spring Boot o Node.js en el backend.</h5>

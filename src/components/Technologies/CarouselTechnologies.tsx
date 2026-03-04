@@ -30,14 +30,14 @@ const CarouselTechnologies: React.FC<CarouselProps> = ({ cardsInfo, setIndexTech
                 spaceBetween={10}
                 slidesPerView={1}
                 pagination={{ clickable: true }}
-                className="w-[300px] h-[470px] sm:w-[350px] pb-12"
+                className="w-full h-fit sm:w-[350px] pb-22"
             >
                 {cardsInfo.map((category, key) => {
                     const Icon = category.icon;
                     return (
                         <SwiperSlide key={key} className="flex justify-center items-center">
                             {/* Eliminamos el w-[300px] de aquí y dejamos w-full para que use el ancho del Swiper */}
-                            <div className='flex flex-col items-center justify-start border border-solid border-[#e5e5e5] shadow-md rounded-[40px] py-[30px] px-[15px] gap-[50px] w-full bg-white mb-6 min-h-[400px] h-auto'>
+                            <div className='flex flex-col items-center justify-start border border-solid border-[#e5e5e5] shadow-md rounded-[40px] py-[30px] px-[15px] gap-[50px] w-full bg-white mb-6 min-h-[340px] h-auto'>
 
                                 <div className='flex flex-col items-center justify-center'>
                                     <Icon size={25} color={category.color} />
