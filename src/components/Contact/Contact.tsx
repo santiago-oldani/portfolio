@@ -42,7 +42,7 @@ const Contact: React.FC = () => {
         }
 
         toast.promise(
-            fetch(`http://localhost:3000/contact`, {
+            fetch(`https://portfolio-backend-orcin-eight.vercel.app/contact`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(form)
@@ -125,33 +125,37 @@ const Contact: React.FC = () => {
 
                     <div className="flex flex-row max-[970px]:flex-col items-center justify-center gap-8 max-[970px]:gap-4 w-full">
 
-                        <div className="flex flex-row max-[970px]:flex-col max-[970px]:p-[10px] max-[970px]:justify-start items-center justify-center gap-8 max-[970px]:gap-4 w-full  overflow-y-auto overflow-x-hidden pr-2 custom-scrollbar max-[970px]:max-h-[180px]">
+                        <div className="flex flex-col h-full max-[970px]:p-[10px] max-[970px]:justify-start items-center justify-center gap-8 max-[970px]:gap-4 w-full  overflow-y-auto overflow-x-hidden pr-2 custom-scrollbar p-[10px] max-[970px]:max-h-[180px]">
 
-                            <div className="flex flex-col items-start justify-center gap-2 w-full max-w-[170px] max-[970px]:max-w-full">
-                                <label className="max-[970px]:text-[0.9rem] max-[450px]:text-[0.8rem]" htmlFor="fullname">Nombre y apellido</label>
-                                <input
-                                    id="fullname"
-                                    name="fullname"
-                                    placeholder="Nombre completo"
-                                    value={form.fullname}
-                                    onChange={(e) => handleChange(e)}
-                                    type="text"
-                                    className="border border-2 border-solid rounded-[8px] w-full border-[#eff2f6] py-[6px] px-[12px] max-[450px]:text-[0.8rem] max-[970px]:text-[0.9rem]"
-                                />
+                            <div className="flex items-center justify-center gap-[10px]">
+                                <div className="flex flex-col items-start justify-center gap-2 w-full max-w-[170px] max-[970px]:max-w-full">
+                                    <label className="max-[970px]:text-[0.9rem] max-[450px]:text-[0.8rem]" htmlFor="fullname">Nombre y apellido</label>
+                                    <input
+                                        id="fullname"
+                                        name="fullname"
+                                        placeholder="Nombre completo"
+                                        value={form.fullname}
+                                        onChange={(e) => handleChange(e)}
+                                        type="text"
+                                        className="border border-2 border-solid rounded-[8px] w-full border-[#eff2f6] py-[6px] px-[12px] max-[450px]:text-[0.8rem] max-[970px]:text-[0.9rem]"
+                                    />
+                                </div>
+
+                                <div className="flex flex-col items-start justify-center gap-2 w-full max-w-[170px] max-[970px]:max-w-full">
+                                    <label htmlFor="email" className="max-[970px]:text-[0.9rem] max-[450px]:text-[0.8rem]">Email</label>
+                                    <input
+                                        id="email"
+                                        name="email"
+                                        placeholder="tu@email.com"
+                                        value={form.email}
+                                        onChange={(e) => handleChange(e)}
+                                        type="email"
+                                        className="border border-2 border-solid rounded-[8px] w-full border-[#eff2f6] py-[6px] px-[12px] max-[450px]:text-[0.8rem] max-[970px]:text-[0.9rem]"
+                                    />
+                                </div>
                             </div>
 
-                            <div className="flex flex-col items-start justify-center gap-2 w-full max-w-[170px] max-[970px]:max-w-full">
-                                <label htmlFor="email" className="max-[970px]:text-[0.9rem] max-[450px]:text-[0.8rem]">Email</label>
-                                <input
-                                    id="email"
-                                    name="email"
-                                    placeholder="tu@email.com"
-                                    value={form.email}
-                                    onChange={(e) => handleChange(e)}
-                                    type="email"
-                                    className="border border-2 border-solid rounded-[8px] w-full border-[#eff2f6] py-[6px] px-[12px] max-[450px]:text-[0.8rem] max-[970px]:text-[0.9rem]"
-                                />
-                            </div>
+
                             <div className="flex flex-col items-start justify-center gap-2 w-[370px] max-[970px]:w-full">
                                 <label className="max-[970px]:text-[0.9rem] max-[450px]:text-[0.8rem]">Mensaje</label>
                                 <textarea
