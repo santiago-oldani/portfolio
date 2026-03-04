@@ -169,7 +169,7 @@ const Technologies: React.FC = () => {
     return (
         <section className="flex flex-col snap-start gap-[70px] max-[1000px]:gap-[30px] py-[80px] items-center justify-around h-full w-full px-[20px]">
 
-            <div className='flex flex-col items-center justify-center pt-[5px] '>
+            <div className='flex flex-col items-center justify-center pt-[25px] max-[1000px]:pt-[5px]'>
                 <div className='flex flex-row items-center justify-center gap-[15px]'>
                     <h2 className='text-[42px] max-[1500px]:text-[32px] max-[450px]:text-[26px] font-semibold m-[0px] truncate max-[450px]:max-w-[250px] text-center'>Tecnologias y habilidades</h2>
                     <img src={tools} alt="" className='w-[60px] pt-[15px] max-[1500px]:w-[40px] max-[450px]:text-[30px]' />

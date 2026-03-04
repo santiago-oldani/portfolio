@@ -93,9 +93,9 @@ const Projects: React.FC = () => {
     }, []);
 
     return (
-        <section className="flex flex-col snap-start pt-[100px] gap-[85px] max-[1000px]:gap-[20px] max-[1500px]:gap-[60px] px-[20px] items-center justify-start w-full">
+        <section className="flex flex-col snap-start max-[1000px]:pt-[80px] pt-[100px] gap-[85px] max-[1000px]:gap-[20px] max-[1500px]:gap-[60px] px-[20px] items-center justify-start w-full">
 
-            <div className='flex flex-col items-center justify-center pt-[25px] '>
+            <div className='flex flex-col items-center justify-center pt-[25px] max-[1000px]:pt-[5px]'>
                 <div className='flex flex-row items-center justify-center gap-[15px]'>
                     <h2 className='text-[42px] max-[1500px]:text-[32px] max-[450px]:text-[26px] font-semibold m-[0px] text-center'>Proyectos Destacados</h2>
                     <img src={project} alt="" className='w-[60px] pt-[15px] max-[1500px]:w-[40px] max-[450px]:text-[30px]' />

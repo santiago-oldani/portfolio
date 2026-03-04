@@ -28,14 +28,14 @@ interface PropsCarouselProjects {
 
 const CarouselProjects: React.FC<PropsCarouselProjects> = ({ featuredProjects }) => {
     return (
-        <div className="w-full flex justify-center h-[75%]">
+        <div className="w-full flex justify-center h-[85%]">
             <Swiper
                 modules={[Pagination]}
                 spaceBetween={20}
                 slidesPerView={1}
                 pagination={{ clickable: true }}
                 /* Ajustamos el ancho del Swiper: este manda sobre el tamaño de la card */
-                className="w-[90%] max-w-[500px] pb-4"
+                className="w-[90%] max-w-[500px] h-fit min-h-[600px] pb-4"
             >
                 {featuredProjects.map((project, index) => {
                     return (

@@ -88,10 +88,10 @@ const Contact: React.FC = () => {
     };
 
     return (
-        <div className="flex flex-col py-[100px] items-center justify-center gap-[50px] max-[970px]:gap-[30px] min-h-screen">
+        <div className="flex flex-col py-[80px] max-[970px]:py-[70px] items-center justify-start gap-[50px] max-[970px]:gap-[20px] min-h-screen">
 
             {/* HEADER */}
-            <div className='flex flex-col items-center justify-center pt-[25px] '>
+            <div className='flex flex-col items-center justify-center pt-[25px] max-[970px]:pt-[5px]'>
                 <div className='flex flex-row items-center justify-center gap-[15px]'>
                     <h2 className='text-[42px] max-[1500px]:text-[32px] max-[450px]:text-[26px] font-semibold m-[0px] text-center'>Contacto</h2>
                     <img src={icon} alt="" className='w-[60px] pt-[15px] max-[1500px]:w-[40px] max-[450px]:text-[30px]' />
