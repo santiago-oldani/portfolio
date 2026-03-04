@@ -88,7 +88,7 @@ const Contact: React.FC = () => {
     };
 
     return (
-        <div className="flex flex-col py-[80px] max-[970px]:py-[70px] items-center justify-start gap-[50px] max-[970px]:gap-[20px] min-h-screen">
+        <div className="flex flex-col py-[80px] items-center justify-start gap-[50px] max-[970px]:gap-[30px] min-h-screen">
 
             {/* HEADER */}
             <div className='flex flex-col items-center justify-center pt-[25px] max-[970px]:pt-[5px]'>
@@ -135,49 +135,52 @@ const Contact: React.FC = () => {
 
                     <div className="flex flex-row max-[970px]:flex-col items-center justify-center gap-8 max-[970px]:gap-4 w-full">
 
-                        <div className="flex flex-col items-start justify-center gap-2 w-full max-w-[170px] max-[970px]:max-w-full">
-                            <label className="max-[970px]:text-[0.9rem] max-[450px]:text-[0.8rem]" htmlFor="fullname">Nombre y apellido</label>
-                            <input
-                                id="fullname"
-                                name="fullname"
-                                placeholder="Nombre completo"
-                                value={form.fullname}
-                                onChange={(e) => handleChange(e)}
-                                type="text"
-                                className="border border-2 border-solid rounded-[8px] w-full border-[#eff2f6] py-[6px] px-[12px] max-[450px]:text-[0.8rem] max-[970px]:text-[0.9rem]"
-                            />
-                        </div>
+                        <div className="flex flex-row max-[970px]:flex-col max-[970px]:p-[10px] max-[970px]:justify-start items-center justify-center gap-8 max-[970px]:gap-4 w-full  overflow-y-auto overflow-x-hidden pr-2 custom-scrollbar max-[970px]:max-h-[180px]">
 
-                        <div className="flex flex-col items-start justify-center gap-2 w-full max-w-[170px] max-[970px]:max-w-full">
-                            <label htmlFor="email" className="max-[970px]:text-[0.9rem] max-[450px]:text-[0.8rem]">Email</label>
-                            <input
-                                id="email"
-                                name="email"
-                                placeholder="tu@email.com"
-                                value={form.email}
-                                onChange={(e) => handleChange(e)}
-                                type="email"
-                                className="border border-2 border-solid rounded-[8px] w-full border-[#eff2f6] py-[6px] px-[12px] max-[450px]:text-[0.8rem] max-[970px]:text-[0.9rem]"
-                            />
-                        </div>
+                            <div className="flex flex-col items-start justify-center gap-2 w-full max-w-[170px] max-[970px]:max-w-full">
+                                <label className="max-[970px]:text-[0.9rem] max-[450px]:text-[0.8rem]" htmlFor="fullname">Nombre y apellido</label>
+                                <input
+                                    id="fullname"
+                                    name="fullname"
+                                    placeholder="Nombre completo"
+                                    value={form.fullname}
+                                    onChange={(e) => handleChange(e)}
+                                    type="text"
+                                    className="border border-2 border-solid rounded-[8px] w-full border-[#eff2f6] py-[6px] px-[12px] max-[450px]:text-[0.8rem] max-[970px]:text-[0.9rem]"
+                                />
+                            </div>
 
-                    </div>
-
-                    <div className="flex flex-col items-start justify-center gap-2 w-[370px] max-[970px]:w-full">
-                        <label className="max-[970px]:text-[0.9rem] max-[450px]:text-[0.8rem]">Mensaje</label>
-                        <textarea
-                            id="message"
-                            name="message"
-                            value={form.message}
-                            onChange={(e) => handleChange(e)}
-                            placeholder="Cuentame sobre tu proyecto..."
-                            className="border border-2 border-solid rounded-[8px] max-[450px]:text-[0.8rem] border-[#eff2f6] 
+                            <div className="flex flex-col items-start justify-center gap-2 w-full max-w-[170px] max-[970px]:max-w-full">
+                                <label htmlFor="email" className="max-[970px]:text-[0.9rem] max-[450px]:text-[0.8rem]">Email</label>
+                                <input
+                                    id="email"
+                                    name="email"
+                                    placeholder="tu@email.com"
+                                    value={form.email}
+                                    onChange={(e) => handleChange(e)}
+                                    type="email"
+                                    className="border border-2 border-solid rounded-[8px] w-full border-[#eff2f6] py-[6px] px-[12px] max-[450px]:text-[0.8rem] max-[970px]:text-[0.9rem]"
+                                />
+                            </div>
+                            <div className="flex flex-col items-start justify-center gap-2 w-[370px] max-[970px]:w-full">
+                                <label className="max-[970px]:text-[0.9rem] max-[450px]:text-[0.8rem]">Mensaje</label>
+                                <textarea
+                                    id="message"
+                                    name="message"
+                                    value={form.message}
+                                    onChange={(e) => handleChange(e)}
+                                    placeholder="Cuentame sobre tu proyecto..."
+                                    className="border border-2 border-solid rounded-[8px] max-[450px]:text-[0.8rem] border-[#eff2f6] 
                        w-full 
                        h-[150px] max-[450px]:h-[70px]
                        max-[970px]:h-[90px] 
                        p-3 resize-none 
                        max-[970px]:text-[0.9rem]"
-                        />
+                                />
+                            </div>
+                        </div>
+
+
                     </div>
 
                     <button
@@ -198,7 +201,7 @@ const Contact: React.FC = () => {
                 max-[970px]:gap-[15px] 
                 w-[450px] 
                 max-[970px]:w-[92%] 
-                max-[970px]:max-h-[120px] max-[970px]:justify-start
+                max-[970px]:max-h-[160px] max-[970px]:justify-start
                 max-[970px]:overflow-y-auto">
 
                     <div

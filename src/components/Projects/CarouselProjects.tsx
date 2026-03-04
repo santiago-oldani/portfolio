@@ -35,20 +35,20 @@ const CarouselProjects: React.FC<PropsCarouselProjects> = ({ featuredProjects })
                 slidesPerView={1}
                 pagination={{ clickable: true }}
                 /* Ajustamos el ancho del Swiper: este manda sobre el tamaño de la card */
-                className="w-[90%] max-w-[500px] h-fit min-h-[530px] pb-4"
+                className="w-[90%] max-w-[500px] h-fit min-h-[500px] pb-4"
             >
                 {featuredProjects.map((project, index) => {
                     return (
                         <SwiperSlide key={index} className="flex justify-center items-center">
                             <div
-                                className="flex flex-col items-start justify-start w-full min-h-[480px] h-auto border border-solid rounded-2xl shadow-lg border-[#e5e5e5] hover:shadow-md bg-white overflow-hidden"
+                                className="flex flex-col items-start justify-start w-full min-h-[450px] h-auto border border-solid rounded-2xl shadow-lg border-[#e5e5e5] hover:shadow-md bg-white overflow-hidden"
                             >
                                 <img src={project.img} alt={project.title} className="w-full object-cover max-[450px]:h-[150px] h-[200px] rounded-t-[18px]" />
 
                                 <div className='flex flex-col flex-1 w-full items-start p-[20px] gap-[15px] overflow-visible'>
                                     <h3 className='text-[20px] text-[#000] max-[450px]:text-[16px] font-bold shrink-0'>{project.title}</h3>
 
-                                    <div className='flex-1 w-full overflow-y-auto overflow-x-hidden pr-2 custom-scrollbar max-h-[150px]'>
+                                    <div className='flex-1 w-full overflow-y-auto overflow-x-hidden pr-2 custom-scrollbar max-h-[120px]'>
                                         <h4 className='font-medium text-[14px] max-[450px]:text-[12px] mb-4 text-gray-700'>{project.description}</h4>
 
                                         <div className='flex flex-wrap w-full items-center justify-center gap-y-[15px] gap-x-[25px] pb-4'>
