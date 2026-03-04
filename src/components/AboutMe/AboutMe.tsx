@@ -43,9 +43,9 @@ const AboutMe: React.FC = () => {
     }, []);
 
     return (
-        <div className="flex flex-col snap-start py-[125px] max-[1000px]:pt-[100px] max-[1000px]:pb-[50px] px-[20px] items-center justify-center h-full w-full">
+        <div className="flex flex-col snap-start py-[125px] max-[1000px]:pt-[80px] max-[1000px]:pb-[80px] px-[20px] items-center justify-center h-full w-full">
 
-            {isMobile && <div className='flex flex-col items-center justify-center pt-[25px] '>
+            {isMobile && <div className='flex flex-col items-center justify-center pt-[5px] '>
                 <div className='flex flex-row items-center justify-center gap-[15px]'>
                     <h2 className='text-[42px] max-[1500px]:text-[32px] max-[450px]:text-[26px] font-semibold m-[0px] truncate max-[450px]:max-w-[250px] text-center'>Sobre Mi</h2>
                     <img src={pizarra} alt="" className='w-[60px] pt-[15px] max-[1500px]:w-[40px] max-[450px]:text-[30px]' />

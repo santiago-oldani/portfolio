@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { scrollToSection } from "../../utils/scroll";
 
 const Navbar: React.FC<{ shrink: boolean; activeSection: string }> = ({
@@ -7,6 +7,17 @@ const Navbar: React.FC<{ shrink: boolean; activeSection: string }> = ({
   activeSection,
 }) => {
   const [open, setOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 1000);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 1000);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const menuItems = [
     { label: "Inicio", id: "welcome" },
@@ -25,7 +36,7 @@ const Navbar: React.FC<{ shrink: boolean; activeSection: string }> = ({
     <motion.nav
       animate={{
         height: shrink ? 60 : 80,
-        marginTop: shrink ? 30 : 20,
+        marginTop: isMobile ? 10 : shrink ? 30 : 20,
       }}
       transition={{ duration: 0.3, ease: "easeInOut" }}
       className="flex flex-row fixed bg-white z-50 top-0 left-1/2 transform -translate-x-1/2 w-[90%] rounded-[12px] px-[20px] shadow-sm border-b border-solid border-[#e5e5e5] justify-between items-center"

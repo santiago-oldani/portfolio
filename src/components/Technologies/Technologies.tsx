@@ -167,9 +167,9 @@ const Technologies: React.FC = () => {
     }, []);
 
     return (
-        <section className="flex flex-col snap-start gap-[70px] max-[1000px]:gap-[30px] py-[100px] items-center justify-around h-full w-full px-[20px]">
+        <section className="flex flex-col snap-start gap-[70px] max-[1000px]:gap-[30px] py-[80px] items-center justify-around h-full w-full px-[20px]">
 
-            <div className='flex flex-col items-center justify-center pt-[25px] '>
+            <div className='flex flex-col items-center justify-center pt-[5px] '>
                 <div className='flex flex-row items-center justify-center gap-[15px]'>
                     <h2 className='text-[42px] max-[1500px]:text-[32px] max-[450px]:text-[26px] font-semibold m-[0px] truncate max-[450px]:max-w-[250px] text-center'>Tecnologias y habilidades</h2>
                     <img src={tools} alt="" className='w-[60px] pt-[15px] max-[1500px]:w-[40px] max-[450px]:text-[30px]' />
@@ -187,7 +187,7 @@ const Technologies: React.FC = () => {
                     animate={{ y: 0, opacity: 1 }}
                     exit={{ y: -20, opacity: 0 }}
                     transition={{ duration: 0.35, ease: "easeInOut" }}
-                    className="flex items-center justify-center border border-solid border-[#e5e5e5] h-[80px]  shadow-md rounded-[40px] p-[40px] gap-[20px] bg-white/80 backdrop-blur-md"
+                    className="flex items-center justify-center border border-solid border-[#e5e5e5] h-[80px]  shadow-md rounded-[40px] max-[450px]:p-[10px] p-[40px] gap-[20px] bg-white/80 backdrop-blur-md"
                 >
                     <img
                         className="w-[60px] h-[60px] max-[1015px]:w-[45px] max-[1015px]:h-[45px]"
