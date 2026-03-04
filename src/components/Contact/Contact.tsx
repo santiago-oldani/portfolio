@@ -200,8 +200,8 @@ const Contact: React.FC = () => {
                 <div className="flex flex-col items-center justify-center gap-[20px] 
                 max-[970px]:gap-[10px]
                 w-[450px] 
-                max-[970px]:w-[92%] 
-                max-[970px]:max-h-[160px] max-[970px]:justify-start
+                max-[970px]:w-[92%] max-[970px]:pb-[30px]
+                max-[970px]:max-h-[130px] max-[970px]:justify-start
                 max-[970px]:overflow-y-auto">
 
                     <div
