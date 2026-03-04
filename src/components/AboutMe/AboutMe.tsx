@@ -1,4 +1,3 @@
-import computer from '../../assets/icons/computer1.svg';
 import rostro from '../../assets/imgs/rostro_oldani.jpeg';
 import { motion } from "motion/react";
 import { LuMapPin } from "react-icons/lu";

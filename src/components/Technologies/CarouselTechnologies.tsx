@@ -1,6 +1,6 @@
 import type { IconType } from 'react-icons';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination, Navigation } from 'swiper/modules';
+import { Pagination } from 'swiper/modules';
 
 import 'swiper/swiper-bundle.css';
 
