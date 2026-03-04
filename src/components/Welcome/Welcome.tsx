@@ -36,7 +36,7 @@ function Welcome() {
     };
 
     return (
-        <section className="w-full h-[calc(100vh-200px)] snap-start pt-[100px] pb-[50px] row-start-2 flex flex-col justify-between items-center">
+        <section className="w-full h-[calc(100vh-200px)] snap-start pt-[100px] pb-[50px] row-start-2 flex flex-col max-[450px]:justify-start max-[450px]:gap-[70px]  justify-between items-center">
             <div className="inline-block leading-tight shadow-md border font-semibold border-[#e5e5e5] mt-[16px] rounded-[18px] max-[920px]:text-[14px] max-[920px]:py-[7px] max-[920px]:px-[18px] px-[24px] py-[10px] text-center">
                 Disponible para proyectos
             </div>

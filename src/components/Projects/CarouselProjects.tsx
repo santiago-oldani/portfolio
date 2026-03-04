@@ -41,7 +41,7 @@ const CarouselProjects: React.FC<PropsCarouselProjects> = ({ featuredProjects })
                     return (
                         <SwiperSlide key={index} className="flex justify-center items-center">
                             <div
-                                className="flex flex-col items-start justify-start w-full h-[550px] border border-solid rounded-2xl shadow-lg border-[#e5e5e5] hover:shadow-md bg-white overflow-hidden"
+                                className="flex flex-col items-start justify-start w-full min-h-[550px] h-auto border border-solid rounded-2xl shadow-lg border-[#e5e5e5] hover:shadow-md bg-white overflow-hidden"
                             >
                                 <img src={project.img} alt={project.title} className="w-full object-cover h-[200px] rounded-t-[18px]" />
 

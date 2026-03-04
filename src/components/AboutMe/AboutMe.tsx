@@ -8,6 +8,8 @@ import { GrTechnology } from "react-icons/gr";
 import { BiLogoTypescript } from 'react-icons/bi';
 import { SiExpress, SiMysql, SiSpringboot, SiTailwindcss } from 'react-icons/si';
 import { IoLogoJavascript } from 'react-icons/io5';
+import { useEffect, useState } from 'react';
+import pizarra from '../../assets/icons/pizarra.svg';
 
 const StackArrayFrontend = [
     { name: "HTML", icon: <FaHtml5 /> },
@@ -28,19 +30,43 @@ const StackArrayBackend = [
 ];
 
 const AboutMe: React.FC = () => {
+    const [isMobile, setIsMobile] = useState(window.innerWidth < 1000);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth < 1000);
+        };
+
+        window.addEventListener('resize', handleResize);
+
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
     return (
-        <div className="flex flex-col snap-start py-[125px] items-center justify-center h-full w-full">
+        <div className="flex flex-col snap-start py-[125px] max-[1000px]:pt-[100px] max-[1000px]:pb-[50px] px-[20px] items-center justify-center h-full w-full">
+
+            {isMobile && <div className='flex flex-col items-center justify-center pt-[25px] '>
+                <div className='flex flex-row items-center justify-center gap-[15px]'>
+                    <h2 className='text-[42px] max-[1500px]:text-[32px] max-[450px]:text-[26px] font-semibold m-[0px] truncate max-[450px]:max-w-[250px] text-center'>Sobre Mi</h2>
+                    <img src={pizarra} alt="" className='w-[60px] pt-[15px] max-[1500px]:w-[40px] max-[450px]:text-[30px]' />
+                </div>
+
+                <h5 className='text-[20px] text-gray-600 m-[0px] max-[970px]:text-[16px] max-[450px]:text-[14px] text-center'>
+                    Experiencia solida en el stack completo de desarrollo web moderno.
+                </h5>
+            </div>}
+
             <motion.div
                 /* initial={{ x: 0, y: 0, opacity: 0 }}
                 whileInView={{ x: 0, y:80, opacity: 1 }}
                 transition={{ duration: 1 }} */
-                className='flex flex-row max-[1000px]:flex-col items-start mt-[80px] justify-center border-1 border-solid shadow-md border-[#e9e9ea] w-fit h-fit gap-[20px] p-[20px] rounded-[14px] max-w-[1400px] max-[1000px]:w-[92%] 
+                className='flex flex-row max-[1000px]:flex-col items-start max-[1000px]:mt-[20px] mt-[80px] justify-center border-1 border-solid shadow-md border-[#e9e9ea] w-fit h-full gap-[20px] p-[20px] rounded-[14px] max-w-[1400px] max-[1000px]:w-[92%] 
                 max-[1000px]:max-h-[800px] max-[1000px]:justify-start
                 max-[1000px]:overflow-y-auto max-[1000px]:gap-[0px]'>
 
                 <div className='w-[40%] max-[1000px]:w-full h-full border-r-[1px] border-[#f2f1f5] flex flex-col  items-center justify-start py-[20px] px-[20px] gap-[20px]'>
                     <div className='w-[230px] h-[230px] max-[1000px]:w-[180px] max-[1000px]:h-[180px] rounded-full overflow-hidden border-2 border-gray-200 shadow-lg'>
-                        <img src={rostro} alt="Santiago Oldani" className='w-full h-full object-cover' />
+                        <img src={rostro} alt="Santiago Oldani" className='w-full h-full object-cover flex-shrink-0' />
                     </div>
 
                     <div className='text-[#787a84] font-[600] text-[1rem] border-b-[1px] border-[#f2f1f5] pb-[10px]'>

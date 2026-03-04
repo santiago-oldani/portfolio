@@ -167,7 +167,7 @@ const Technologies: React.FC = () => {
     }, []);
 
     return (
-        <section className="flex flex-col snap-start gap-[70px] py-[100px] items-center justify-around h-full w-full px-[20px]">
+        <section className="flex flex-col snap-start gap-[70px] max-[1000px]:gap-[30px] py-[100px] items-center justify-around h-full w-full px-[20px]">
 
             <div className='flex flex-col items-center justify-center pt-[25px] '>
                 <div className='flex flex-row items-center justify-center gap-[15px]'>

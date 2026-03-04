@@ -93,7 +93,7 @@ const Projects: React.FC = () => {
     }, []);
 
     return (
-        <section className="flex flex-col snap-start pt-[100px] gap-[85px] max-[1500px]:gap-[60px]  items-center justify-start w-full">
+        <section className="flex flex-col snap-start pt-[100px] gap-[85px] max-[1000px]:gap-[20px] max-[1500px]:gap-[60px] px-[20px] items-center justify-start w-full">
 
             <div className='flex flex-col items-center justify-center pt-[25px] '>
                 <div className='flex flex-row items-center justify-center gap-[15px]'>
