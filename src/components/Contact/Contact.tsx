@@ -23,7 +23,6 @@ const formularyObject: Formulary = {
 
 const Contact: React.FC = () => {
     const [form, setForm] = useState(formularyObject);
-    const [cannotSend, setCannotSend] = useState(false);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>) => {
         setForm({ ...form, [e.target.name]: e.target.value })
@@ -38,12 +37,9 @@ const Contact: React.FC = () => {
             form.email.includes(".com");
 
         if (!isValid) {
-            setCannotSend(true);
             toast.error("Por favor, revisá los campos del formulario");
             return;
         }
-
-        setCannotSend(false);
 
         toast.promise(
             fetch(`http://localhost:3000/contact`, {
@@ -126,12 +122,6 @@ const Contact: React.FC = () => {
                     <h3 className="text-[30px] max-[970px]:text-[22px] max-[450px]:text-[16px] font-semibold">
                         Envíame un mensaje
                     </h3>
-
-                    {cannotSend ? (
-                        <p className="text-[#ff0000] px-[16px] text-center text-[10px] font-semibold max-[970px]:text-[0.7rem]">
-                            *El nombre tiene que tener más de 3 carácteres, el mail tiene que ser válido y el mensaje tiene que tener contenido*
-                        </p>
-                    ) : null}
 
                     <div className="flex flex-row max-[970px]:flex-col items-center justify-center gap-8 max-[970px]:gap-4 w-full">
 
