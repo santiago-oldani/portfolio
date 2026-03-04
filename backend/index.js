@@ -7,7 +7,7 @@ const nodemailer = require('nodemailer');
 require('dotenv').config();
 
 app.use(cors({
-  origin: ['http://localhost:5173', 'https://portfolio-self-xi-57.vercel.app/']
+  origin: ['http://localhost:5173', 'https://portfolio-self-xi-57.vercel.app']
 }));
 
 
