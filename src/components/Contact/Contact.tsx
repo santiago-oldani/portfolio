@@ -106,7 +106,7 @@ const Contact: React.FC = () => {
             <div className="flex flex-row items-start justify-center gap-x-[50px] 
                     max-[970px]:flex-col 
                     max-[970px]:items-center 
-                    max-[970px]:gap-y-[25px] 
+                    max-[970px]:gap-y-[15px] 
                     w-full">
 
                 {/* FORM */}
@@ -198,7 +198,7 @@ const Contact: React.FC = () => {
 
                 {/* LINKS */}
                 <div className="flex flex-col items-center justify-center gap-[20px] 
-                max-[970px]:gap-[15px] 
+                max-[970px]:gap-[10px]
                 w-[450px] 
                 max-[970px]:w-[92%] 
                 max-[970px]:max-h-[160px] max-[970px]:justify-start
