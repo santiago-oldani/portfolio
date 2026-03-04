@@ -19,10 +19,11 @@ import figma from '../../assets/icons/figma.png';
 import tools from '../../assets/icons/tools.svg';
 import { TbWorld } from "react-icons/tb";
 import type { IconType } from 'react-icons';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from "motion/react";
 import { BsDatabase } from "react-icons/bs";
 import { VscTools } from "react-icons/vsc";
+import CarouselTechnologies from './CarouselTechnologies';
 
 interface TechItem {
     name: string;
@@ -153,17 +154,28 @@ const techCategories: TechCategory[] = [
 
 const Technologies: React.FC = () => {
     const [indexTechItem, setIndexTechItem] = useState({ category: 0, item: 0 });
+    const [isMobile, setIsMobile] = useState(window.innerWidth < 1015);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth < 1015);
+        };
+
+        window.addEventListener('resize', handleResize);
+
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
 
     return (
-        <section className="flex flex-col snap-start gap-[70px] py-[100px] items-center justify-around h-full w-full">
-            
-            <div className='flex flex-col items-center justify-center pt-[25px]'>
+        <section className="flex flex-col snap-start gap-[70px] py-[100px] items-center justify-around h-full w-full px-[20px]">
+
+            <div className='flex flex-col items-center justify-center pt-[25px] '>
                 <div className='flex flex-row items-center justify-center gap-[15px]'>
-                    <h2 className='text-[42px] font-semibold m-[0px]'>Tecnologias y habilidades</h2>
-                    <img src={tools} alt="" className='w-[60px] pt-[15px]' />
+                    <h2 className='text-[42px] max-[1500px]:text-[32px] max-[450px]:text-[26px] font-semibold m-[0px] truncate max-[450px]:max-w-[250px] text-center'>Tecnologias y habilidades</h2>
+                    <img src={tools} alt="" className='w-[60px] pt-[15px] max-[1500px]:w-[40px] max-[450px]:text-[30px]' />
                 </div>
-                {/* Frase actualizada */}
-                <h5 className='text-[20px] text-gray-600 m-[0px]'>
+
+                <h5 className='text-[20px] text-gray-600 m-[0px] max-[970px]:text-[16px] max-[450px]:text-[14px] text-center'>
                     Experiencia solida en el stack completo de desarrollo web moderno.
                 </h5>
             </div>
@@ -175,28 +187,28 @@ const Technologies: React.FC = () => {
                     animate={{ y: 0, opacity: 1 }}
                     exit={{ y: -20, opacity: 0 }}
                     transition={{ duration: 0.35, ease: "easeInOut" }}
-                    className="flex items-center justify-center border border-solid border-[#e5e5e5] h-[80px] shadow-md rounded-[40px] py-[40px] px-[40px] gap-[20px] bg-white/80 backdrop-blur-md"
+                    className="flex items-center justify-center border border-solid border-[#e5e5e5] h-[80px]  shadow-md rounded-[40px] p-[40px] gap-[20px] bg-white/80 backdrop-blur-md"
                 >
                     <img
-                        className="w-[60px] h-[60px]"
+                        className="w-[60px] h-[60px] max-[1015px]:w-[45px] max-[1015px]:h-[45px]"
                         src={techCategories[indexTechItem.category].items[indexTechItem.item].img}
                         alt={techCategories[indexTechItem.category].items[indexTechItem.item].name}
                     />
-                    <p className="text-gray-700 text-[18px] font-medium">
+                    <p className="text-gray-700 text-[18px] max-[1015px]:text-[14px] max-[450px]:text-[12px] font-medium">
                         {techCategories[indexTechItem.category].items[indexTechItem.item].description}
                     </p>
                 </motion.div>
             </AnimatePresence>
 
-            <div className='flex flex-row  justify-start gap-[50px] pl-[30px] w-fit'>
+            {isMobile ? <CarouselTechnologies cardsInfo={techCategories} setIndexTechItem={setIndexTechItem} /> : <div className='flex flex-row justify-start gap-[50px] w-fit'>
                 {techCategories.map((category, key) => {
                     const Icon = category.icon;
 
                     return (
-                        <div className='flex flex-col items-center justify-start border border-solid border-[#e5e5e5] shadow-md rounded-[40px] py-[30px] px-[15px] gap-[50px] w-[450px] h-auto'>
+                        <div className='flex flex-col items-center justify-start border border-solid border-[#e5e5e5] shadow-md rounded-[40px] py-[30px] px-[15px] gap-[50px] max-[1500px]:w-[300px] w-[450px] h-auto'>
                             <div className='flex flex-col items-center justify-center'>
-                                <Icon size={35} color={category.color} />
-                                <h3 className='text-[26px] font-semibold m-[0px]'>{category.title}</h3>
+                                <Icon size={35} color={category.color} className='max-[1015px]:w-[25px] max-[1015px]:h-[25px]' />
+                                <h3 className='text-[26px] font-semibold m-[0px] max-[1015px]:text-[18px]'>{category.title}</h3>
                             </div>
 
                             <div className="flex flex-row items-center gap-[20px] flex-wrap w-full justify-center">
@@ -204,9 +216,9 @@ const Technologies: React.FC = () => {
                                     return (
                                         <div className="flex flex-col items-center gap-[10px] justify-center">
                                             <div onMouseEnter={() => setIndexTechItem({ category: key, item: index })} className="border border-solid border-[#e5e5e5] transition-all duration-300 ease-in-out hover:border-[#00aeffff] hover:shadow-2xl rounded-[12px] p-[10px] cursor-pointer">
-                                                <img src={item.img} alt="html" className='w-[50px] h-[50px]' />
+                                                <img src={item.img} alt="html" className='w-[50px] h-[50px] max-[1500px]:w-[30px] max-[1500px]:h-[30px]' />
                                             </div>
-                                            <h5 className='text-[14px]'>{item.name}</h5>
+                                            <h5 className='text-[14px] max-[1015px]:text-[10px]'>{item.name}</h5>
                                         </div>
                                     )
                                 })}
@@ -215,7 +227,9 @@ const Technologies: React.FC = () => {
                     )
 
                 })}
-            </div>
+            </div>}
+
+
         </section>
     )
 }

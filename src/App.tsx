@@ -37,7 +37,7 @@ const App = () => {
       <Toaster position="bottom-center" reverseOrder={false} />
       <main className="h-screen overflow-y-scroll snap-y snap-mandatory">
         <Navbar shrink={shouldShrinkNavbar} activeSection={activeSection}/>
-        {!isWelcomeInView ? <CiCircleChevUp size={60} color="#007bff" onClick={() => scrollToSection('welcome')} className="absolute bottom-10 right-10 cursor-pointer"></CiCircleChevUp> : null}
+        {!isWelcomeInView ? <CiCircleChevUp size={60} color="#007bff" onClick={() => scrollToSection('welcome')} className="absolute z-50 bottom-10 right-10 cursor-pointer"></CiCircleChevUp> : null}
 
         <section id="welcome" ref={welcomeRef} className="snap-start h-screen flex items-center justify-center">
           <Welcome />

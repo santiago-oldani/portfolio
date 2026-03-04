@@ -40,13 +40,13 @@ const ProjectButtons: React.FC<ProjectButtonsProps> = ({ demo, code }) => {
     };
 
     return (
-        <div className='flex flex-row items-start self-center gap-[10px]'>
+        <div className='flex flex-row items-center justify-center w-full gap-[10px]'>
 
             {/* BOTÓN DEMO */}
             <div className="relative">
                 <div
                     onClick={() => toggleDropdown('demo')}
-                    className='flex flex-row items-center justify-center gap-[10px] border-2 px-[25px] py-[6px] cursor-pointer border-solid border-[#007bff] rounded-[8px]'
+                    className='flex flex-row items-center justify-center gap-[10px] border-2 max-[400px]:px-[5px] px-[25px] py-[6px] cursor-pointer border-solid border-[#007bff] rounded-[8px]'
                 >
                     <GoLinkExternal size={20} color='#007bff' />
                     <p className='text-[16px] text-[#007bff] font-medium'>Demo</p>
@@ -57,9 +57,9 @@ const ProjectButtons: React.FC<ProjectButtonsProps> = ({ demo, code }) => {
                     {openDropdown === 'demo' && (
                         <motion.div
                             initial={{ opacity: 0, y: -5 }}
-                            animate={{ opacity: 1, y: 5 }}
+                            animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -5 }}
-                            className="absolute left-0 w-full bg-white border border-[#e5e5e5] rounded-[8px] shadow-lg z-50 overflow-hidden"
+                            className="absolute bottom-[41px] left-0 w-full bg-white border border-[#e5e5e5] rounded-[8px] shadow-lg z-[100]"
                         >
                             {renderLinks(demo)}
                         </motion.div>
@@ -68,10 +68,10 @@ const ProjectButtons: React.FC<ProjectButtonsProps> = ({ demo, code }) => {
             </div>
 
             {/* BOTÓN CÓDIGO */}
-            <div className="relative">
+            <div className="relative overflow-visible">
                 <div
                     onClick={() => toggleDropdown('code')}
-                    className='flex flex-row items-center justify-center gap-[10px] border-2 px-[25px] py-[6px] cursor-pointer border-solid border-[#e9ecf3] rounded-[8px]'
+                    className='flex flex-row items-center justify-center gap-[10px] border-2 max-[400px]:px-[5px] px-[25px] py-[6px] cursor-pointer border-solid border-[#e9ecf3] rounded-[8px]'
                 >
                     <IoCodeSlashOutline size={20} color='#000' />
                     <p className='text-[16px] font-medium'>Código</p>
@@ -84,7 +84,7 @@ const ProjectButtons: React.FC<ProjectButtonsProps> = ({ demo, code }) => {
                             initial={{ opacity: 0, y: -5 }}
                             animate={{ opacity: 1, y: 5 }}
                             exit={{ opacity: 0, y: -5 }}
-                            className="absolute left-0 w-full bg-white border border-[#e5e5e5] rounded-[8px] shadow-lg z-50 overflow-hidden"
+                            className="absolute bottom-[46px]  left-0 w-full bg-white border border-[#e5e5e5] rounded-[8px] shadow-lg z-50"
                         >
                             {renderLinks(code)}
                         </motion.div>

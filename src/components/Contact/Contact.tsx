@@ -92,81 +92,174 @@ const Contact: React.FC = () => {
     };
 
     return (
-        <div className="flex flex-col py-[100px] items-center justify-center gap-[50px]">
-            <div className='flex flex-col items-center justify-center pt-[25px]'>
+        <div className="flex flex-col py-[100px] items-center justify-center gap-[50px] max-[970px]:gap-[30px] min-h-screen">
+
+            {/* HEADER */}
+            <div className='flex flex-col items-center justify-center pt-[25px] '>
                 <div className='flex flex-row items-center justify-center gap-[15px]'>
-                    <h2 className='text-[42px] font-semibold m-[0px]'>Contacto</h2>
-                    <img src={icon} alt="" className='w-[60px] pt-[15px]' />
+                    <h2 className='text-[42px] max-[1500px]:text-[32px] max-[450px]:text-[26px] font-semibold m-[0px] text-center'>Contacto</h2>
+                    <img src={icon} alt="" className='w-[60px] pt-[15px] max-[1500px]:w-[40px] max-[450px]:text-[30px]' />
                 </div>
-                {/* Frase actualizada */}
-                <h5 className='text-[20px] text-gray-600 m-[0px]'>
+
+                <h5 className='text-[20px] text-gray-600 m-[0px] max-[970px]:text-[16px] max-[450px]:text-[14px] text-center'>
                     Hablemos sobre tu próximo proyecto o una oportunidad laboral.
                 </h5>
             </div>
 
-            <div className="flex flex-row items-start justify-center gap-x-[50px]">
+            {/* CONTENIDO */}
+            <div className="flex flex-row items-start justify-center gap-x-[50px] 
+                    max-[970px]:flex-col 
+                    max-[970px]:items-center 
+                    max-[970px]:gap-y-[25px] 
+                    w-full">
 
-                <form className="flex flex-col items-center justify-between w-[450px] h-[500px] border border-1 border-solid rounded-[16px] border-[#e5e5e5] shadow-md py-[20px]" onSubmit={(e) => { handleSubmit(e) }}>
-                    <h3 className="text-[30px] font-semibold">Envíame un mensaje</h3>
-                    {cannotSend ? <p className="text-[#ff0000] px-[16px] text-center text-[14px] font-semibold">*El nombre tiene que tener más de 3 carácteres, el mail tiene que ser válido y el mensaje tiene que tener contenido*</p> : null}
-                    <div className="flex flex-row items-center justify-center gap-8">
-                        <div className="flex flex-col items-start justify-center gap-2">
-                            <label htmlFor="fullname">Nombre y apellido</label>
-                            <input id="fullname" name="fullname" placeholder="Nombre completo" value={form.fullname} onChange={(e) => handleChange(e)} type="text" className="border border-2 border-solid rounded-[8px] w-[170px] border-[#eff2f6] py-[5px] px-[12px]" />
+                {/* FORM */}
+                <form
+                    className="flex flex-col items-center justify-between 
+                   w-[450px] h-[500px] 
+                   max-[970px]:w-[92%] 
+                   max-[970px]:h-auto 
+                   border border-solid rounded-[16px] 
+                   border-[#e5e5e5] shadow-md 
+                   py-[25px] px-[20px] 
+                   max-[970px]:py-[20px] 
+                   gap-[20px]"
+                    onSubmit={(e) => { handleSubmit(e) }}
+                >
+
+                    <h3 className="text-[30px] max-[970px]:text-[22px] font-semibold">
+                        Envíame un mensaje
+                    </h3>
+
+                    {cannotSend ? (
+                        <p className="text-[#ff0000] px-[16px] text-center text-[10px] font-semibold max-[970px]:text-[0.7rem]">
+                            *El nombre tiene que tener más de 3 carácteres, el mail tiene que ser válido y el mensaje tiene que tener contenido*
+                        </p>
+                    ) : null}
+
+                    <div className="flex flex-row max-[970px]:flex-col items-center justify-center gap-8 max-[970px]:gap-4 w-full">
+
+                        <div className="flex flex-col items-start justify-center gap-2 w-full max-w-[170px] max-[970px]:max-w-full">
+                            <label className="max-[970px]:text-[0.9rem]" htmlFor="fullname">Nombre y apellido</label>
+                            <input
+                                id="fullname"
+                                name="fullname"
+                                placeholder="Nombre completo"
+                                value={form.fullname}
+                                onChange={(e) => handleChange(e)}
+                                type="text"
+                                className="border border-2 border-solid rounded-[8px] w-full border-[#eff2f6] py-[6px] px-[12px] max-[970px]:text-[0.9rem]"
+                            />
                         </div>
-                        <div className="flex flex-col items-start justify-center gap-2">
-                            <label htmlFor="email">Email</label>
-                            <input id="email" name="email" placeholder="tu@email.com" value={form.email} onChange={(e) => handleChange(e)} type="email" className="border border-2 border-solid rounded-[8px] w-[170px] border-[#eff2f6] py-[5px] px-[12px]" />
+
+                        <div className="flex flex-col items-start justify-center gap-2 w-full max-w-[170px] max-[970px]:max-w-full">
+                            <label htmlFor="email" className="max-[970px]:text-[0.9rem]">Email</label>
+                            <input
+                                id="email"
+                                name="email"
+                                placeholder="tu@email.com"
+                                value={form.email}
+                                onChange={(e) => handleChange(e)}
+                                type="email"
+                                className="border border-2 border-solid rounded-[8px] w-full border-[#eff2f6] py-[6px] px-[12px] max-[970px]:text-[0.9rem]"
+                            />
                         </div>
+
                     </div>
 
-                    <div className="flex flex-col items-start justify-center gap-2 w-[370px]">
-                        <label htmlFor="">Mensaje</label>
-                        <textarea id="message" name="message" value={form.message} onChange={(e) => handleChange(e)} placeholder="Cuentame sobre tu proyecto..."
-                            className="border border-2 border-solid rounded-[8px] border-[#eff2f6] w-[370px] h-[150px] p-3 text-start align-top resize-none" />
+                    <div className="flex flex-col items-start justify-center gap-2 w-[370px] max-[970px]:w-full">
+                        <label className="max-[970px]:text-[0.9rem]">Mensaje</label>
+                        <textarea
+                            id="message"
+                            name="message"
+                            value={form.message}
+                            onChange={(e) => handleChange(e)}
+                            placeholder="Cuentame sobre tu proyecto..."
+                            className="border border-2 border-solid rounded-[8px] border-[#eff2f6] 
+                       w-full 
+                       h-[150px] 
+                       max-[970px]:h-[90px] 
+                       p-3 resize-none 
+                       max-[970px]:text-[0.9rem]"
+                        />
                     </div>
 
-                    <button className="bg-[#fff] text-[#000] px-4 py-2 rounded-lg cursor-pointer hover:border-[#0069d9] border border-2 border-solid rounded-[8px] border-[#eff2f6] transition">Enviar Mensaje</button>
+                    <button
+                        className="bg-[#fff] text-[#000] px-4 py-2 
+                     rounded-lg cursor-pointer 
+                     hover:border-[#0069d9] 
+                     border border-2 border-solid 
+                     border-[#eff2f6] transition 
+                     max-[970px]:text-[0.9rem]"
+                    >
+                        Enviar Mensaje
+                    </button>
+
                 </form>
 
-                <div className="flex flex-col items-center justify-center gap-[20px]">
+                {/* LINKS */}
+                <div className="flex flex-col items-center justify-center gap-[20px] 
+                max-[970px]:gap-[15px] 
+                w-[450px] 
+                max-[970px]:w-[92%] 
+                max-[970px]:max-h-[120px] max-[970px]:justify-start
+                max-[970px]:overflow-y-auto">
+
                     <div
                         onClick={() => handleCopy('santioldani08@gmail.com')}
-                        className="flex flex-row relative items-center cursor-pointer justify-start w-[450px] border border-1 border-solid rounded-[8px] border-[#e5e5e5] shadow-md py-[20px] px-[40px] gap-5">
-                        <IoMailUnreadOutline color="#007bff" size={30} />
+                        className="flex flex-row relative items-center cursor-pointer justify-start 
+                     w-full border border-solid rounded-[8px] 
+                     border-[#e5e5e5] shadow-md 
+                     py-[20px] px-[40px] 
+                     max-[970px]:py-[14px] 
+                     max-[970px]:px-[25px] 
+                     gap-5"
+                    >
+                        <IoMailUnreadOutline color="#007bff" size={30} className="flex-shrink-0 max-[970px]:w-[22px] max-[970px]:h-[22px]" />
                         <div className="flex flex-col items-start justify-center">
-                            <h3 className="font-semibold">Email</h3>
-                            <p>Clickea para copiar en el portapapeles</p>
-                            <IoMdLink className="color-[#007bff] absolute right-[50px]" size={25} color="#007bff" />
+                            <h3 className="font-semibold max-[970px]:text-[0.95rem]">Email</h3>
+                            <p className="max-[970px]:text-[0.85rem]  truncate max-[970px]:max-w-[180px]">Clickea para copiar en el portapapeles</p>
+                            <IoMdLink className="color-[#007bff] absolute right-[50px] max-[970px]:w-[20px] max-[970px]:h-[20px]" size={25} color="#007bff" />
                         </div>
                     </div>
-                    <a target="_blank" href="https://github.com/santiago-oldani">
-                        <div className="flex flex-row relative items-center cursor-pointer justify-start w-[450px]  border border-1 border-solid rounded-[8px] border-[#e5e5e5] shadow-md py-[20px] px-[40px] gap-5">
-                            <VscGithub color="#007bff" size={30} />
-                            <div className="flex flex-col items-start  justify-center">
-                                <h3 className="font-semibold">GitHub</h3>
-                                <p>github.com/santiago-oldani </p>
 
+                    <a target="_blank" href="https://github.com/santiago-oldani" className="w-full">
+                        <div className="flex flex-row relative items-center cursor-pointer justify-start 
+                         w-full border border-solid rounded-[8px] 
+                         border-[#e5e5e5] shadow-md 
+                         py-[20px] px-[40px] 
+                         max-[970px]:py-[14px] 
+                         max-[970px]:px-[25px] 
+                         gap-5">
+                            <VscGithub color="#007bff" size={30} className="flex-shrink-0 max-[970px]:w-[22px] max-[970px]:h-[22px]" />
+                            <div className="flex flex-col items-start justify-center">
+                                <h3 className="font-semibold max-[970px]:text-[0.95rem]">GitHub</h3>
+                                <p className="max-[970px]:text-[0.85rem]">github.com/santiago-oldani</p>
+                                <GoLinkExternal className="color-[#007bff] absolute right-[50px] max-[970px]:w-[20px] max-[970px]:h-[20px]" size={25} color="#007bff" />
                             </div>
-                            <GoLinkExternal className="color-[#007bff] absolute right-[50px]" size={25} color="#007bff" />
                         </div>
                     </a>
-                    <a target="_blank" href="https://www.linkedin.com/in/santioldani/">
-                        <div className="flex flex-row relative items-center cursor-pointer justify-start w-[450px]  border border-1 border-solid rounded-[8px] border-[#e5e5e5] shadow-md py-[20px] px-[40px] gap-5">
-                            <CiLinkedin color="#007bff" size={30} />
+
+                    <a target="_blank" href="https://www.linkedin.com/in/santioldani/" className="w-full">
+                        <div className="flex flex-row relative items-center cursor-pointer justify-start 
+                         w-full border border-solid rounded-[8px] 
+                         border-[#e5e5e5] shadow-md 
+                         py-[20px] px-[40px] 
+                         max-[970px]:py-[14px] 
+                         max-[970px]:px-[25px] 
+                         gap-5">
+                            <CiLinkedin color="#007bff" size={30} className="flex-shrink-0 max-[970px]:w-[22px] max-[970px]:h-[22px]" />
                             <div className="flex flex-col items-start justify-center">
-                                <h3 className="font-semibold">LinkedIn</h3>
-                                <p>linkedin.com/in/santioldani</p>
-                                <GoLinkExternal className="color-[#007bff] absolute right-[50px]" size={25} color="#007bff" />
+                                <h3 className="font-semibold max-[970px]:text-[0.95rem]">LinkedIn</h3>
+                                <p className="max-[970px]:text-[0.85rem]">linkedin.com/in/santioldani</p>
+                                <GoLinkExternal className="color-[#007bff] absolute right-[50px] max-[970px]:w-[20px] max-[970px]:h-[20px]" size={25} color="#007bff" />
                             </div>
                         </div>
                     </a>
                 </div>
             </div>
-
-
         </div>
-    )
+    );
 }
 
 export default Contact;

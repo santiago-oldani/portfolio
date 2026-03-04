@@ -8,6 +8,8 @@ import { BiLogoTypescript } from "react-icons/bi";
 import { SiSpringboot, SiMysql, SiTailwindcss, SiFirebase, SiExpress, SiStyledcomponents } from "react-icons/si";
 import ProjectButtons from './ProjectButtons';
 import { IoLogoJavascript } from "react-icons/io5";
+import { useEffect, useState } from 'react';
+import CarouselProjects from './CarouselProjects';
 
 interface Languages {
     name: string;
@@ -77,51 +79,76 @@ const featuredProjects: ArrayProjects[] = [
 
 
 const Projects: React.FC = () => {
-    return (
-        <section className="flex flex-col snap-start pt-[100px] gap-[85px] items-center justify-start w-full">
 
-            <div className='flex flex-col items-center justify-center pt-[25px]'>
+    const [isMobile, setIsMobile] = useState(window.innerWidth < 1185);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth < 1185);
+        };
+
+        window.addEventListener('resize', handleResize);
+
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
+    return (
+        <section className="flex flex-col snap-start pt-[100px] gap-[85px] max-[1500px]:gap-[60px]  items-center justify-start w-full">
+
+            <div className='flex flex-col items-center justify-center pt-[25px] '>
                 <div className='flex flex-row items-center justify-center gap-[15px]'>
-                    <h2 className='text-[42px] font-semibold m-[0px]'>Proyectos Destacados</h2>
-                    <img src={project} alt="" className='w-[60px] pt-[15px]' />
+                    <h2 className='text-[42px] max-[1500px]:text-[32px] max-[450px]:text-[26px] font-semibold m-[0px] text-center'>Proyectos Destacados</h2>
+                    <img src={project} alt="" className='w-[60px] pt-[15px] max-[1500px]:w-[40px] max-[450px]:text-[30px]' />
                 </div>
-                {/* Frase actualizada */}
-                <h5 className='text-[20px] text-gray-600 m-[0px]'>
+
+                <h5 className='text-[20px] text-gray-600 m-[0px] max-[970px]:text-[16px] max-[450px]:text-[14px] text-center'>
                     Una seleccion de mis trabajos mas recientes y significativos.
                 </h5>
             </div>
 
-            <div className="flex flex-row flex-wrap h-auto items-start gap-[75px] justify-center w-full ">
+            {isMobile ? <CarouselProjects featuredProjects={featuredProjects}/> : 
+            
+            <div className="flex flex-row h-auto items-start gap-[75px] max-[1500px]:gap-[40px] justify-center w-full px-[20px]">
                 {/* CARD */}
                 {featuredProjects.map((project, index) => {
                     return (
                         <motion.div
-                            className="flex flex-col items-start justify-start w-[500px] h-auto pb-[10px] border border-solid rounded-2xl shadow-lg border-[#e5e5e5] hover:shadow-md">
-                            <img src={project.img} alt="" className="w-full  object-cover h-[200px] rounded-t-[18px]" />
-                            <div className='flex flex-col h-full w-full items-start gap-[12px] justify-start gap-[30px] py-[14px] px-[20px] '>
-                                <h3 className='text-[20px] text-[#000] font-bold m-[0px]'>{project.title}</h3>
-                                <h4 className='font-medium text-[14px]'>{project.description}</h4>
-                                <div className='flex flex-wrap self-center w-full items-center justify-center gap-y-[10px] gap-x-[34px] mr-[0.5rem] mb-[0.3rem]'>
-                                    {project.languages.map((lang) => {
-                                        return (
-                                            <div key={index} className="flex flex-col items-center">
+                            key={index}
+                            className="flex flex-col items-start justify-start w-[500px] h-[550px] border border-solid rounded-2xl shadow-lg border-[#e5e5e5] hover:shadow-md bg-white overflow-visible"
+                        >
+                            <img src={project.img} alt={project.title} className="w-full object-cover h-[200px] rounded-t-[18px]" />
+
+                            {/* Contenedor principal con flex-1 para empujar los botones al final */}
+                            <div className='flex flex-col flex-1 w-full items-start p-[20px] gap-[15px] overflow-hidden'>
+                                <h3 className='text-[20px] text-[#000] font-bold shrink-0'>{project.title}</h3>
+
+                                {/* Área con scroll: Solo vertical y sin scrollbar horizontal */}
+                                <div className='flex-1 w-full overflow-y-auto overflow-x-hidden pr-2 custom-scrollbar'>
+                                    <h4 className='font-medium text-[14px] mb-4 text-gray-700'>{project.description}</h4>
+
+                                    <div className='flex flex-wrap w-full items-center justify-center gap-y-[15px] gap-x-[25px] pb-4'>
+                                        {project.languages.map((lang, langIdx) => (
+                                            <div key={langIdx} className="flex flex-col items-center">
                                                 <span style={{ color: lang.color }} className="text-2xl">
                                                     {lang.icon}
                                                 </span>
                                                 <p className="text-[12px] mt-1">{lang.name}</p>
                                             </div>
-                                        )
-                                    })}
+                                        ))}
+                                    </div>
                                 </div>
 
-                                <ProjectButtons demo={project.demo} code={project.code} />
-
+                                {/* Este componente ahora siempre estará al final del contenedor flex-1 */}
+                                <div className="w-full pt-4 border-t border-gray-100 shrink-0">
+                                    <ProjectButtons demo={project.demo} code={project.code} />
+                                </div>
                             </div>
-
                         </motion.div>
                     )
                 })}
-            </div>
+            </div>}
+
+
 
 
         </section >
