@@ -97,7 +97,7 @@ const Projects: React.FC = () => {
 
             <div className='flex flex-col items-center justify-center pt-[25px] max-[1000px]:pt-[5px]'>
                 <div className='flex flex-row items-center justify-center gap-[15px]'>
-                    <h2 className='text-[42px] max-[1500px]:text-[32px] max-[450px]:text-[26px] font-semibold m-[0px] text-center'>Proyectos Destacados</h2>
+                    <h2 className='text-[42px] max-[1500px]:text-[32px] max-[450px]:text-[26px] font-semibold m-[0px] text-center truncate max-[450px]:max-w-[250px] text-center'>Proyectos Destacados</h2>
                     <img src={project} alt="" className='w-[60px] pt-[15px] max-[1500px]:w-[40px] max-[450px]:text-[30px]' />
                 </div>
 

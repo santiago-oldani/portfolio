@@ -49,7 +49,7 @@ const ProjectButtons: React.FC<ProjectButtonsProps> = ({ demo, code }) => {
                     className='flex flex-row items-center justify-center gap-[10px] border-2 max-[400px]:px-[5px] px-[25px] py-[6px] cursor-pointer border-solid border-[#007bff] rounded-[8px]'
                 >
                     <GoLinkExternal size={20} color='#007bff' />
-                    <p className='text-[16px] text-[#007bff] font-medium'>Demo</p>
+                    <p className='text-[16px] text-[#007bff] max-[450px]:text-[14px] font-medium'>Demo</p>
                     <GoChevronDown className={`transition-transform ${openDropdown === 'demo' ? 'rotate-180' : ''}`} color='#007bff' />
                 </div>
 
@@ -74,7 +74,7 @@ const ProjectButtons: React.FC<ProjectButtonsProps> = ({ demo, code }) => {
                     className='flex flex-row items-center justify-center gap-[10px] border-2 max-[400px]:px-[5px] px-[25px] py-[6px] cursor-pointer border-solid border-[#e9ecf3] rounded-[8px]'
                 >
                     <IoCodeSlashOutline size={20} color='#000' />
-                    <p className='text-[16px] font-medium'>Código</p>
+                    <p className='text-[16px] max-[450px]:text-[14px] font-medium'>Código</p>
                     <GoChevronDown className={`transition-transform ${openDropdown === 'code' ? 'rotate-180' : ''}`} color='#000' />
                 </div>
 

@@ -123,7 +123,7 @@ const Contact: React.FC = () => {
                     onSubmit={(e) => { handleSubmit(e) }}
                 >
 
-                    <h3 className="text-[30px] max-[970px]:text-[22px] font-semibold">
+                    <h3 className="text-[30px] max-[970px]:text-[22px] max-[450px]:text-[16px] font-semibold">
                         Envíame un mensaje
                     </h3>
 
@@ -136,7 +136,7 @@ const Contact: React.FC = () => {
                     <div className="flex flex-row max-[970px]:flex-col items-center justify-center gap-8 max-[970px]:gap-4 w-full">
 
                         <div className="flex flex-col items-start justify-center gap-2 w-full max-w-[170px] max-[970px]:max-w-full">
-                            <label className="max-[970px]:text-[0.9rem]" htmlFor="fullname">Nombre y apellido</label>
+                            <label className="max-[970px]:text-[0.9rem] max-[450px]:text-[0.8rem]" htmlFor="fullname">Nombre y apellido</label>
                             <input
                                 id="fullname"
                                 name="fullname"
@@ -144,12 +144,12 @@ const Contact: React.FC = () => {
                                 value={form.fullname}
                                 onChange={(e) => handleChange(e)}
                                 type="text"
-                                className="border border-2 border-solid rounded-[8px] w-full border-[#eff2f6] py-[6px] px-[12px] max-[970px]:text-[0.9rem]"
+                                className="border border-2 border-solid rounded-[8px] w-full border-[#eff2f6] py-[6px] px-[12px] max-[450px]:text-[0.8rem] max-[970px]:text-[0.9rem]"
                             />
                         </div>
 
                         <div className="flex flex-col items-start justify-center gap-2 w-full max-w-[170px] max-[970px]:max-w-full">
-                            <label htmlFor="email" className="max-[970px]:text-[0.9rem]">Email</label>
+                            <label htmlFor="email" className="max-[970px]:text-[0.9rem] max-[450px]:text-[0.8rem]">Email</label>
                             <input
                                 id="email"
                                 name="email"
@@ -157,23 +157,23 @@ const Contact: React.FC = () => {
                                 value={form.email}
                                 onChange={(e) => handleChange(e)}
                                 type="email"
-                                className="border border-2 border-solid rounded-[8px] w-full border-[#eff2f6] py-[6px] px-[12px] max-[970px]:text-[0.9rem]"
+                                className="border border-2 border-solid rounded-[8px] w-full border-[#eff2f6] py-[6px] px-[12px] max-[450px]:text-[0.8rem] max-[970px]:text-[0.9rem]"
                             />
                         </div>
 
                     </div>
 
                     <div className="flex flex-col items-start justify-center gap-2 w-[370px] max-[970px]:w-full">
-                        <label className="max-[970px]:text-[0.9rem]">Mensaje</label>
+                        <label className="max-[970px]:text-[0.9rem] max-[450px]:text-[0.8rem]">Mensaje</label>
                         <textarea
                             id="message"
                             name="message"
                             value={form.message}
                             onChange={(e) => handleChange(e)}
                             placeholder="Cuentame sobre tu proyecto..."
-                            className="border border-2 border-solid rounded-[8px] border-[#eff2f6] 
+                            className="border border-2 border-solid rounded-[8px] max-[450px]:text-[0.8rem] border-[#eff2f6] 
                        w-full 
-                       h-[150px] 
+                       h-[150px] max-[450px]:h-[70px]
                        max-[970px]:h-[90px] 
                        p-3 resize-none 
                        max-[970px]:text-[0.9rem]"
@@ -186,7 +186,7 @@ const Contact: React.FC = () => {
                      hover:border-[#0069d9] 
                      border border-2 border-solid 
                      border-[#eff2f6] transition 
-                     max-[970px]:text-[0.9rem]"
+                     max-[970px]:text-[0.9rem] max-[450px]:text-[0.8rem]"
                     >
                         Enviar Mensaje
                     </button>

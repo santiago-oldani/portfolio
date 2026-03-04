@@ -30,7 +30,7 @@ const CarouselTechnologies: React.FC<CarouselProps> = ({ cardsInfo, setIndexTech
                 spaceBetween={10}
                 slidesPerView={1}
                 pagination={{ clickable: true }}
-                className="w-full h-fit sm:w-[350px] pb-22"
+                className="w-full min-h-[330px] h-fit sm:w-[350px] pb-22"
             >
                 {cardsInfo.map((category, key) => {
                     const Icon = category.icon;
