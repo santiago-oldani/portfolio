@@ -55,7 +55,7 @@ const featuredProjects: ArrayProjects[] = [
             { name: "Java", icon: <FaJava />, color: '#007396' },
             { name: "MySQL", icon: <SiMysql />, color: '#4479A1' }
         ],
-        description: "HealthPoint es una solución robusta diseñada para optimizar la atención en centros de salud. Combina una Landing Page de alto impacto visual con una plataforma interna de gestión técnica.",
+        description: "HealthPoint es una solución robusta diseñada para optimizar la atención en centros de salud. Combina una Landing Page de alto impacto visual con una plataforma interna de gestión técnica. ACLARACIÓN: El servicio de backend está alojado en Render bajo un plan gratuito, lo que puede ocasionar una demora de aproximadamente 1 minuto en la carga inicial mientras el servidor se activa. Una vez iniciado, la navegación por el sistema de gestión de turnos y la persistencia en MySQL funcionarán con total normalidad.",
         demo: { frontend: "https://frontend-appointment-two.vercel.app", backend: '' },
         code: { frontend: "https://github.com/santiago-oldani/frontend_appointment", backend: 'https://github.com/santiago-oldani/backend_appointment' }
     },
@@ -71,8 +71,8 @@ const featuredProjects: ArrayProjects[] = [
             { name: "Express", icon: <SiExpress />, color: '#000000' },
             { name: "MySQL", icon: <SiMysql />, color: '#4479A1' }
         ],
-        description: "Farmacy es una plataforma integral de gestión y venta de productos farmacéuticos. Fue desarrollada como proyecto final para la materia 'Programación 3' de la UTN, enfocándose en la arquitectura Model-View-Controller (MVC) y la persistencia de datos relacionales.",
-        demo: { frontend: "https://farmacy-tan.vercel.app", backend: 'https://trabajo-practico-progra-iii-back.vercel.app' },
+        description: "Farmacy es una plataforma integral de gestión y venta de productos farmacéuticos. Fue desarrollada como proyecto final para la materia 'Programación 3' de la UTN, enfocándose en la arquitectura Model-View-Controller (MVC) y la persistencia de datos relacionales. ACLARACIÓN: Debido a que el backend está alojado en un entorno Serverless (Vercel), las sesiones de usuario en memoria son volátiles y no persisten entre ejecuciones. Por este motivo, el acceso a las rutas del panel de administración (backend) se ha configurado de forma abierta para garantizar una navegación fluida durante la demo. El flujo de autenticación original, que valida credenciales contra la base de datos MySQL, se encuentra totalmente funcional y disponible para su revisión en el código fuente.",
+        demo: { frontend: "https://farmacy-tan.vercel.app", backend: 'https://trabajo-practico-progra-iii-back.vercel.app/login' },
         code: { frontend: "https://github.com/santiago-oldani/trabajo_practico_prograIII_front", backend: 'https://github.com/santiago-oldani/trabajo_practico_prograIII_back' }
     },
 ]
