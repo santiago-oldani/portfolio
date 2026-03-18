@@ -44,7 +44,6 @@ const App = () => {
 
     lenis.on('scroll', (e) => {
       if (Math.abs(e.velocity) < 0.1 && Math.abs(e.velocity) > 0.01) {
-        const sections = document.querySelectorAll("section");
         const scrollPos = window.scrollY;
         const windowHeight = window.innerHeight;
 
