@@ -37,12 +37,17 @@ const App = () => {
 
   useEffect(() => {
     const lenis = new Lenis({
-      duration: 1.2,
+      duration: 1.2, // Un poquito más de tiempo para que el snap no sea brusco
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       autoRaf: true,
+      wheelMultiplier: 2, // ← ACÁ ESTÁ EL SECRETO: Desplaza 2.5 veces más píxeles por scroll
+      touchMultiplier: 2,   // También para que en el celu rinda más el dedo
     });
 
+    window.lenis = lenis;
+
     lenis.on('scroll', (e) => {
+      // Mantenemos tu lógica de centrado que te gustaba
       if (Math.abs(e.velocity) < 0.1 && Math.abs(e.velocity) > 0.01) {
         const scrollPos = window.scrollY;
         const windowHeight = window.innerHeight;
@@ -50,12 +55,18 @@ const App = () => {
         const closestSectionIndex = Math.round(scrollPos / windowHeight);
         const targetPos = closestSectionIndex * windowHeight;
 
-        lenis.scrollTo(targetPos, { immediate: false });
+        lenis.scrollTo(targetPos, {
+          immediate: false,
+          lock: false,
+          force: true,
+          duration: 0.8
+        });
       }
     });
 
     return () => {
       lenis.destroy();
+      window.lenis = null;
     };
   }, []);
 
